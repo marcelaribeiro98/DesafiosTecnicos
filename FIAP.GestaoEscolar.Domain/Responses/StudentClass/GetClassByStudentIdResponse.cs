@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FIAP.GestaoEscolar.Domain.Commands.StudentClass
+namespace FIAP.GestaoEscolar.Domain.Responses.StudentClass
 {
-    internal class CreateStudentClassRequest
+    internal class GetClassByStudentIdResponse
     {
     }
 }

@@ -1,6 +1,6 @@
-﻿using FIAP.GestaoEscolar.Domain.Base;
-using FIAP.GestaoEscolar.Domain.Commands.Student;
-using FIAP.GestaoEscolar.Domain.Queries.Student;
+﻿using FIAP.GestaoEscolar.Domain.Requests.Student;
+using FIAP.GestaoEscolar.Domain.Responses.Base;
+using FIAP.GestaoEscolar.Domain.Responses.Student;
 
 namespace FIAP.GestaoEscolar.Application.Services
 {

@@ -1,4 +1,4 @@
-﻿namespace FIAP.GestaoEscolar.Domain.Queries.Class
+﻿namespace FIAP.GestaoEscolar.Domain.Responses.Class
 {
     public class GetClassResponse
     {

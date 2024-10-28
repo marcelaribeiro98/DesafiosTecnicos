@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using FIAP.GestaoEscolar.Domain.Commands.Class;
-using FIAP.GestaoEscolar.Domain.Queries.Class;
+using FIAP.GestaoEscolar.Domain.Requests.Class;
+using FIAP.GestaoEscolar.Domain.Responses.Class;
 using FIAP.GestaoEscolar.Infrastructure.Entities;
 
 namespace FIAP.GestaoEscolar.Application.Mappers

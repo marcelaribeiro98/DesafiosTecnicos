@@ -1,4 +1,4 @@
-﻿namespace FIAP.GestaoEscolar.Domain.Base
+﻿namespace FIAP.GestaoEscolar.Domain.Responses.Base
 {
     public class BaseResponse
     {

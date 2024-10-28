@@ -1,6 +1,6 @@
-﻿using FIAP.GestaoEscolar.Domain.Base;
+﻿using FIAP.GestaoEscolar.Domain.Responses.Base;
 
-namespace FIAP.GestaoEscolar.Domain.Queries.Class
+namespace FIAP.GestaoEscolar.Domain.Responses.Class
 {
     public class GetClassesFilterResponse : BaseRequestPagination
     {

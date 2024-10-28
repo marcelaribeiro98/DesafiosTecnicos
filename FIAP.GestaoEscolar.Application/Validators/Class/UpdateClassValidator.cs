@@ -1,5 +1,5 @@
 ﻿using FIAP.GestaoEscolar.Application.Services;
-using FIAP.GestaoEscolar.Domain.Commands.Class;
+using FIAP.GestaoEscolar.Domain.Requests.Class;
 using FluentValidation;
 
 namespace FIAP.GestaoEscolar.Application.Validators.Class

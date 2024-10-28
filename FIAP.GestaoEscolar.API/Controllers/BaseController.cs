@@ -1,5 +1,5 @@
 ﻿using FIAP.GestaoEscolar.Application.Validators;
-using FIAP.GestaoEscolar.Domain.Base;
+using FIAP.GestaoEscolar.Domain.Responses.Base;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 
