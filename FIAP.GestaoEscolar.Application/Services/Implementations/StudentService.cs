@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FIAP.GestaoEscolar.Application.Helpers;
 using FIAP.GestaoEscolar.Domain.Requests.Student;
 using FIAP.GestaoEscolar.Domain.Responses.Base;
 using FIAP.GestaoEscolar.Domain.Responses.Student;
@@ -29,6 +30,12 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             try
             {
                 var entityMapper = _mapper.Map<Student>(request);
+
+                string password = entityMapper.Password;
+                string hashPassword = Cryptography.HashPassword(password);
+
+                entityMapper.Password = hashPassword;
+
                 int? id = await _studentRepository.CreateAsync(entityMapper);
 
                 if (id == null || id == 0)
@@ -52,7 +59,19 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (entity == null)
                     return new BaseResponse(false, "Aluno não encontrado.");
 
+                string currentHashPassword = entity.Password;
+
                 var entityMapper = _mapper.Map(request, entity);
+
+                //atualiza a senha
+                if (!string.IsNullOrEmpty(request.Password) && !Cryptography.VerifyPassword(currentHashPassword, request.Password))
+                {
+                    string hashPassword = Cryptography.HashPassword(request.Password);
+                    entityMapper.Password = hashPassword;
+                }
+                else //mantem a senha
+                    entityMapper.Password = currentHashPassword;
+
                 bool? updated = await _studentRepository.UpdateAsync(entityMapper);
 
                 if (updated == null || (bool)!updated)
