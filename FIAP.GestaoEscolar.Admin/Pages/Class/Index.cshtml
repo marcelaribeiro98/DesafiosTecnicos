@@ -1,0 +1,38 @@
+﻿@page
+@model FIAP.GestaoEscolar.Admin.Pages.Class.IndexModel
+@{
+    ViewData["Title"] = "Turmas";
+}
+
+<h1>Turmas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Turma</th>
+            <th>Curso ID</th>
+            <th>Ano</th>
+            <th>Ativo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListClasses)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.ClassName</td>
+                <td>@item.CourseId</td>
+                <td>@item.Year</td>
+                <td>@item.Active</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-page="./Active" asp-route-id="@item.Id">@(!@item.Active ? "Ativar" : "Inativar")</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Adicionar</a>
