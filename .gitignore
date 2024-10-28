@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.log
+
+# NuGet Packages
+*.nupkg
+packages/
+*.nuspec
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Outros
+*.db
+*.bak
+*.tmp
+*.log

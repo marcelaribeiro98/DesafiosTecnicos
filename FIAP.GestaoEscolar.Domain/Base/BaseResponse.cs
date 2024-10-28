@@ -2,26 +2,26 @@
 {
     public class BaseResponse
     {
-        public bool Sucesso { get; private set; }
-        public string Mensagem { get; private set; }
-        public BaseResponse(bool sucesso, string mensagem)
+        public bool Success { get; private set; }
+        public string Message { get; private set; }
+        public BaseResponse(bool success, string message)
         {
-            Sucesso = sucesso;
-            Mensagem = mensagem;
+            Success = success;
+            Message = message;
         }
     }
     public class BaseResponse<T> : BaseResponse
     {
-        public BaseResponse(bool sucesso, string mensagem, T? dados) : base(sucesso, mensagem)
+        public BaseResponse(bool success, string message, T? data) : base(success, message)
         {
-            Dados = dados;
+            Data = data;
         }
 
-        public T? Dados { get; private set; }
+        public T? Data { get; private set; }
     }
     public class BasePaginationResponse<T> : BaseResponse
     {
-        public BasePaginationResponse(bool sucesso, string mensagem, List<T>? items, int? totalItems = 0, int? totalDisplayedItems = 0, int? totalPages = 0, int? currentPage = 0) : base(sucesso, mensagem)
+        public BasePaginationResponse(bool success, string message, List<T>? items, int? totalItems = 0, int? totalDisplayedItems = 0, int? totalPages = 0, int? currentPage = 0) : base(success, message)
         {
             TotalItems = totalItems;
             TotalDisplayedItems = totalDisplayedItems;

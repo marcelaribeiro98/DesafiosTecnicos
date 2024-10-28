@@ -13,25 +13,25 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
             return base.BadRequest(new BaseResponse<List<ResponseValidator>?>(false, "Erro de validação", validationFailures));
         }
-        protected IActionResult BaseResponse<T>(BaseResponse<T> dados, bool created = false)
+        protected IActionResult BaseResponse<T>(BaseResponse<T> response, bool created = false)
         {
-            if (dados.Sucesso && !created)
-                return base.Ok(dados);
+            if (response.Success && !created)
+                return base.Ok(response);
 
-            if (dados.Sucesso && created)
-                return base.Created("", dados);
+            if (response.Success && created)
+                return base.Created("", response);
 
-            if (dados.Dados == null)
-                return base.NotFound(dados);
+            if (response.Data == null)
+                return base.NotFound(response);
 
-            return base.BadRequest(dados);
+            return base.BadRequest(response);
         }
-        protected IActionResult BaseResponse(BaseResponse dados)
+        protected IActionResult BaseResponse(BaseResponse response)
         {
-            if (dados.Sucesso)
-                return base.Ok(dados);
+            if (response.Success)
+                return base.Ok(response);
 
-            return base.BadRequest(dados);
+            return base.BadRequest(response);
         }
 
         protected IActionResult BaseResponse(Exception exception)

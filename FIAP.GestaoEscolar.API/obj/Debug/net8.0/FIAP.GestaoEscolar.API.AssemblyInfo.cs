@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FIAP.GestaoEscolar.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+009002dd53dbed6bc27990402a6a15c7f6505d8d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33066a57918d7cc43b78aedcea581811e5ecf6a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("FIAP.GestaoEscolar.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FIAP.GestaoEscolar.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

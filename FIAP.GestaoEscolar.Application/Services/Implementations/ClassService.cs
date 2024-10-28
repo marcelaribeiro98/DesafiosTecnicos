@@ -30,10 +30,6 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                //bool classNameExists = await ClassNameExistsAsync(request.ClassName);
-                //if (classNameExists)
-                //    return new BaseResponse<int>(false, "Já existe uma turma cadastrada com esse nome.", 0);
-
                 var classEntityMapper = _mapper.Map<Class>(request);
                 int id = await _classRepository.CreateAsync(classEntityMapper);
 
@@ -53,11 +49,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         public async Task<BaseResponse> UpdateAsync(UpdateClassRequest request)
         {
             try
-            {
-                //bool classNameExists = await ClassNameExistsAsync(request.ClassName, request.Id);
-                //if (classNameExists)
-                //    return new BaseResponse(false, "Já existe uma turma cadastrada com esse nome.");
-
+            { 
                 var classEntity = await _classRepository.GetByIdAsync(request.Id);
                 if (classEntity == null)
                     return new BaseResponse(false, "Turma não encontrada.");
@@ -86,7 +78,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             {
                 string menssageSuccess = $"Turma {(!active ? "inativada" : "ativada")} com sucesso";
 
-                var classResponse = (await GetByIdAsync(id)).Dados;
+                var classResponse = (await GetByIdAsync(id)).Data;
                 if (classResponse == null)
                     return new BaseResponse(false, "Turma não encontrada.");
 
