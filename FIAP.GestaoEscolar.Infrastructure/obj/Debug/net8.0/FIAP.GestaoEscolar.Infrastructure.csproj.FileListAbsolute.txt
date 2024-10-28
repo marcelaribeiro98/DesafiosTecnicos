@@ -1,0 +1,12 @@
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\bin\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.deps.json
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\bin\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\bin\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.csproj.AssemblyReference.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.AssemblyInfoInputs.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.AssemblyInfo.cs
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\refint\FIAP.GestaoEscolar.Infrastructure.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Infrastructure.dll

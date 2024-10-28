@@ -1,0 +1,17 @@
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Application.deps.json
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Application.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Application.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Domain.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Domain.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\bin\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.csproj.AssemblyReference.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.AssemblyInfoInputs.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.AssemblyInfo.cs
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.csproj.CoreCompileInputs.cache
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.Ges.20380ECC.Up2Date
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\refint\FIAP.GestaoEscolar.Application.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.pdb
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Application.dll

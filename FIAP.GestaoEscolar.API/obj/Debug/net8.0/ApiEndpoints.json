@@ -1,0 +1,271 @@
+[
+  {
+    "ContainingType": "FIAP.GestaoEscolar.API.Controllers.ClassController",
+    "Method": "PostAsync",
+    "RelativePath": "api/turma",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FIAP.GestaoEscolar.Domain.DTOs.Class.CreateClassRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "FIAP.GestaoEscolar.API.Controllers.ClassController",
+    "Method": "GetAllAsync",
+    "RelativePath": "api/turma",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[System.Collections.Generic.List\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "FIAP.GestaoEscolar.API.Controllers.ClassController",
+    "Method": "PutAsync",
+    "RelativePath": "api/turma/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "FIAP.GestaoEscolar.Domain.DTOs.Class.UpdateClassRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "FIAP.GestaoEscolar.API.Controllers.ClassController",
+    "Method": "GetByIdAsync",
+    "RelativePath": "api/turma/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse\u00601[[FIAP.GestaoEscolar.Domain.Queries.Class.GetClassResponse, FIAP.GestaoEscolar.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "FIAP.GestaoEscolar.API.Controllers.ClassController",
+    "Method": "PutActiveAsync",
+    "RelativePath": "api/turma/{id}/ativo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "active",
+        "Type": "System.Boolean",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "FIAP.GestaoEscolar.Domain.Base.BaseResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 500
+      }
+    ]
+  }
+]
