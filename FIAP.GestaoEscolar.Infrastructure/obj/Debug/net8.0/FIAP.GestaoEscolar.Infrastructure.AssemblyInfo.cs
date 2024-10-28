@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FIAP.GestaoEscolar.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+009002dd53dbed6bc27990402a6a15c7f6505d8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("FIAP.GestaoEscolar.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FIAP.GestaoEscolar.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

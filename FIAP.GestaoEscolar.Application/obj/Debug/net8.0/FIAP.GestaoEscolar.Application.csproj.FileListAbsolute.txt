@@ -15,3 +15,4 @@ C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\refint\FIAP.GestaoEscolar.Application.dll
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.pdb
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Application.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Application\obj\Debug\net8.0\FIAP.GestaoEscolar.Application.sourcelink.json

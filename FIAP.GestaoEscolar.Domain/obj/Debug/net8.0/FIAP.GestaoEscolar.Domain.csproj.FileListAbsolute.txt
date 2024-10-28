@@ -10,3 +10,4 @@ C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Domain\obj\Debug\net8.0\FIAP
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Domain\obj\Debug\net8.0\refint\FIAP.GestaoEscolar.Domain.dll
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Domain\obj\Debug\net8.0\FIAP.GestaoEscolar.Domain.pdb
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Domain\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Domain.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Domain\obj\Debug\net8.0\FIAP.GestaoEscolar.Domain.sourcelink.json

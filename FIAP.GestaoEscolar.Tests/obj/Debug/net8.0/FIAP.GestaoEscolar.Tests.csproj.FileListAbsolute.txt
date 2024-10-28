@@ -97,3 +97,4 @@ C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Tests\obj\Debug\net8.0\refin
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Tests\obj\Debug\net8.0\FIAP.GestaoEscolar.Tests.pdb
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Tests\obj\Debug\net8.0\FIAP.GestaoEscolar.Tests.genruntimeconfig.cache
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Tests\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Tests.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Tests\obj\Debug\net8.0\FIAP.GestaoEscolar.Tests.sourcelink.json

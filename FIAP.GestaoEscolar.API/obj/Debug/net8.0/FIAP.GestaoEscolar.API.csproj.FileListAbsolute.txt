@@ -77,3 +77,4 @@ C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.API\obj\Debug\net8.0\refint\
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.API\obj\Debug\net8.0\FIAP.GestaoEscolar.API.pdb
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.API\obj\Debug\net8.0\FIAP.GestaoEscolar.API.genruntimeconfig.cache
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.API\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.API.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.API\obj\Debug\net8.0\FIAP.GestaoEscolar.API.sourcelink.json

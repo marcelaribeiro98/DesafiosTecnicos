@@ -10,3 +10,4 @@ C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\refint\FIAP.GestaoEscolar.Infrastructure.dll
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.pdb
 C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\ref\FIAP.GestaoEscolar.Infrastructure.dll
+C:\Repositorios\DesafiosTecnicos\FIAP.GestaoEscolar.Infrastructure\obj\Debug\net8.0\FIAP.GestaoEscolar.Infrastructure.sourcelink.json

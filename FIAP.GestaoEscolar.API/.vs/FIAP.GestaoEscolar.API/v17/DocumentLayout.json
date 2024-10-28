@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Repositorios\\DesafiosTecnicos\\FIAP.GestaoEscolar.API\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{502BFEC6-0B1A-4EA9-96E1-8DE40670B1E3}|FIAP.GestaoEscolar.API.csproj|c:\\repositorios\\desafiostecnicos\\fiap.gestaoescolar.api\\di\\diextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{502BFEC6-0B1A-4EA9-96E1-8DE40670B1E3}|FIAP.GestaoEscolar.API.csproj|solutionrelative:di\\diextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DIExtensions.cs",
+              "DocumentMoniker": "C:\\Repositorios\\DesafiosTecnicos\\FIAP.GestaoEscolar.API\\DI\\DIExtensions.cs",
+              "RelativeDocumentMoniker": "DI\\DIExtensions.cs",
+              "ToolTip": "C:\\Repositorios\\DesafiosTecnicos\\FIAP.GestaoEscolar.API\\DI\\DIExtensions.cs",
+              "RelativeToolTip": "DI\\DIExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T00:02:28.569Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
