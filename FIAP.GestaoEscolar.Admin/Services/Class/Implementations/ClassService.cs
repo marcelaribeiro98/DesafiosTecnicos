@@ -98,17 +98,26 @@ namespace FIAP.GestaoEscolar.Admin.Services.Class.Implementations
         {
             try
             {
+                ClassModelResponse? response = null;
+
                 string request = $"{_endpoint}/{classId}";
 
                 using var client = _httpClientFactory.CreateClient();
                 client.BaseAddress = new Uri(_urlApi);
 
-                var responseStream = await client.GetStreamAsync(request);
-
-                var response = await JsonSerializer.DeserializeAsync<ClassModelResponse>(responseStream,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var responseMessage = await client.GetAsync(request);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var content = await responseMessage.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(content))
+                    {
+                        response = JsonSerializer.Deserialize<ClassModelResponse>(content,
+                            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                    }
+                }
 
                 return response;
+
             }
             catch (HttpRequestException ex)
             {
@@ -120,13 +129,21 @@ namespace FIAP.GestaoEscolar.Admin.Services.Class.Implementations
         {
             try
             {
+                ListClassModelResponse? response = null;
+
                 using var client = _httpClientFactory.CreateClient();
                 client.BaseAddress = new Uri(_urlApi);
 
-                var responseStream = await client.GetStreamAsync(_endpoint);
-
-                var response = await JsonSerializer.DeserializeAsync<ListClassModelResponse>(responseStream,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var responseMessage = await client.GetAsync(_endpoint);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var content = await responseMessage.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(content))
+                    {
+                        response = JsonSerializer.Deserialize<ListClassModelResponse>(content,
+                            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                    }
+                }
 
                 return response;
             }

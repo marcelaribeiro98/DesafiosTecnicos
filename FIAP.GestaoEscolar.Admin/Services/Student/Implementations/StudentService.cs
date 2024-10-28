@@ -1,4 +1,5 @@
 ﻿using FIAP.GestaoEscolar.Admin.Models;
+using FIAP.GestaoEscolar.Admin.Models.Class;
 using FIAP.GestaoEscolar.Admin.Models.Options;
 using FIAP.GestaoEscolar.Admin.Models.Student;
 using Microsoft.Extensions.Options;
@@ -99,15 +100,23 @@ namespace FIAP.GestaoEscolar.Admin.Services.Student.Implementations
         {
             try
             {
+                StudentModelResponse? response = null;
+
                 string request = $"{_endpoint}/{studentId}";
 
                 using var client = _httpClientFactory.CreateClient();
                 client.BaseAddress = new Uri(_urlApi);
 
-                var responseStream = await client.GetStreamAsync(request);
-
-                var response = await JsonSerializer.DeserializeAsync<StudentModelResponse>(responseStream,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var responseMessage = await client.GetAsync(request);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var content = await responseMessage.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(content))
+                    {
+                        response = JsonSerializer.Deserialize<StudentModelResponse>(content,
+                            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                    }
+                }
 
                 return response;
             }
@@ -121,13 +130,21 @@ namespace FIAP.GestaoEscolar.Admin.Services.Student.Implementations
         {
             try
             {
+                ListStudentModelResponse? response = null;
+
                 using var client = _httpClientFactory.CreateClient();
                 client.BaseAddress = new Uri(_urlApi);
 
-                var responseStream = await client.GetStreamAsync(_endpoint);
-
-                var response = await JsonSerializer.DeserializeAsync<ListStudentModelResponse>(responseStream,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var responseMessage = await client.GetAsync(_endpoint);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var content = await responseMessage.Content.ReadAsStringAsync();
+                    if (!string.IsNullOrEmpty(content))
+                    {
+                        response = JsonSerializer.Deserialize<ListStudentModelResponse>(content,
+                            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                    }
+                }
 
                 return response;
             }

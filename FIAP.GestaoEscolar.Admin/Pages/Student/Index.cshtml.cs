@@ -19,9 +19,12 @@ namespace FIAP.GestaoEscolar.Admin.Pages.Student
         [BindProperty]
         public List<StudentModel> ListStudents { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             var response = await _studentService.GetAllAsync();
+
+            if (response == null || response?.Data?.Count == 0)
+                ListStudents = new List<StudentModel>();
 
             if (response != null && !response.Success)
             {
@@ -30,6 +33,8 @@ namespace FIAP.GestaoEscolar.Admin.Pages.Student
 
             if (response?.Data != null && response?.Data.Count > 0)
                 ListStudents = response.Data ?? new List<StudentModel>();
+
+            return Page();
         }
         public async Task<IActionResult> OnPostActivateAsync(int id)
         {
