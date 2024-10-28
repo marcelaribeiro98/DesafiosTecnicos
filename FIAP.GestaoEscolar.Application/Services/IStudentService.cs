@@ -11,6 +11,6 @@ namespace FIAP.GestaoEscolar.Application.Services
         Task<BaseResponse> UpdateActiveAsync(int id, bool active);
         Task<BaseResponse<GetStudentResponse?>> GetByIdAsync(int id);
         Task<BaseResponse<List<GetStudentResponse>>> GetAllAsync();
-        Task<bool> UserNameExistsAsync(string className, int? id = 0);
+        Task<bool> UserNameExistsAsync(string username, int? id = 0);
     }
 }

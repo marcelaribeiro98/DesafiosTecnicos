@@ -11,7 +11,7 @@ internal class Program
         // Add services to the container.
         builder.Services.AddControllers();
 
-        builder.Services.AddValidatorsFromAssemblyContaining<CreateClassValidator>();
+        builder.Services.AddValidatorsFromAssemblyContaining<CreateStudentValidator>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();

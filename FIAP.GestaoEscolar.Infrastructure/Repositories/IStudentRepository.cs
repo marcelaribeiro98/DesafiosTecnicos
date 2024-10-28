@@ -6,8 +6,9 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories
     {
         Task<int> CreateAsync(Student studentEntity);
         Task<bool> UpdateAsync(Student studentEntity);
-        Task<bool> UpdateStatusAsync(int id, bool active);
+        Task<bool> UpdateActiveAsync(int id, bool active);
         Task<Student?> GetByIdAsync(int id);
         Task<List<Student>> GetAllAsync();
+        Task<int> UserNameExistsAsync(string username, int? id = 0);
     }
 }

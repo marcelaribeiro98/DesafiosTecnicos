@@ -28,8 +28,8 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                var classEntityMapper = _mapper.Map<Class>(request);
-                int id = await _classRepository.CreateAsync(classEntityMapper);
+                var entityMapper = _mapper.Map<Class>(request);
+                int id = await _classRepository.CreateAsync(entityMapper);
 
                 if (id == 0)
                     return new BaseResponse<int>(false, "Não foi possível cadastrar turma.", 0);
@@ -47,14 +47,14 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         public async Task<BaseResponse> UpdateAsync(UpdateClassRequest request)
         {
             try
-            { 
-                var classEntity = await _classRepository.GetByIdAsync(request.Id);
-                if (classEntity == null)
+            {
+                var entity = await _classRepository.GetByIdAsync(request.Id);
+                if (entity == null)
                     return new BaseResponse(false, "Turma não encontrada.");
 
-                var classEntityMapper = _mapper.Map(request, classEntity);
+                var entityMapper = _mapper.Map(request, entity);
 
-                bool updated = await _classRepository.UpdateAsync(classEntityMapper);
+                bool updated = await _classRepository.UpdateAsync(entityMapper);
 
                 if (!updated)
                     return new BaseResponse(false, "Não foi possível atualizar turma.");
@@ -76,11 +76,11 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             {
                 string menssageSuccess = $"Turma {(!active ? "inativada" : "ativada")} com sucesso";
 
-                var classResponse = (await GetByIdAsync(id)).Data;
-                if (classResponse == null)
+                var response = (await GetByIdAsync(id)).Data;
+                if (response == null)
                     return new BaseResponse(false, "Turma não encontrada.");
 
-                if (classResponse.Active == active)
+                if (response.Active == active)
                     return new BaseResponse(true, menssageSuccess);
 
                 bool updated = await _classRepository.UpdateActiveAsync(id, active);
@@ -104,21 +104,21 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             try
             {
                 string formatCacheKey = string.Format(_cacheKeyId, id);
-                GetClassResponse? classResponse = null;
+                GetClassResponse? response = null;
 
-                if (!_cache.TryGetValue(formatCacheKey, out classResponse))
+                if (!_cache.TryGetValue(formatCacheKey, out response))
                 {
-                    var classEntity = await _classRepository.GetByIdAsync(id);
+                    var entity = await _classRepository.GetByIdAsync(id);
 
-                    if (classEntity == null || classEntity?.Id == 0)
+                    if (entity == null || entity?.Id == 0)
                         return new BaseResponse<GetClassResponse?>(false, "Nenhum dado encontrado.", null);
 
-                    classResponse = _mapper.Map<GetClassResponse>(classEntity);
+                    response = _mapper.Map<GetClassResponse>(entity);
 
-                    _cache.Set(formatCacheKey, classResponse, TimeSpan.FromMinutes(10));
+                    _cache.Set(formatCacheKey, response, TimeSpan.FromMinutes(10));
                 }
 
-                return new BaseResponse<GetClassResponse?>(true, "Dado encontrado com sucesso.", classResponse);
+                return new BaseResponse<GetClassResponse?>(true, "Dado encontrado com sucesso.", response);
             }
             catch (Exception ex)
             {
@@ -130,21 +130,21 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                List<GetClassResponse>? classesResponse = null;
+                List<GetClassResponse>? response = null;
 
-                if (!_cache.TryGetValue(_cacheKeyList, out classesResponse))
+                if (!_cache.TryGetValue(_cacheKeyList, out response))
                 {
-                    var classesEntity = await _classRepository.GetAllAsync();
+                    var entities = await _classRepository.GetAllAsync();
 
-                    if (classesEntity == null || classesEntity.Count == 0)
+                    if (entities == null || entities.Count == 0)
                         return new BaseResponse<List<GetClassResponse>>(false, "Nenhum dado encontrado.", null);
 
-                    classesResponse = _mapper.Map<List<GetClassResponse>>(classesEntity);
+                    response = _mapper.Map<List<GetClassResponse>>(entities);
 
-                    _cache.Set(_cacheKeyList, classesResponse, TimeSpan.FromMinutes(10));
+                    _cache.Set(_cacheKeyList, response, TimeSpan.FromMinutes(10));
                 }
 
-                return new BaseResponse<List<GetClassResponse>>(true, "Dados encontrados com sucesso.", classesResponse);
+                return new BaseResponse<List<GetClassResponse>>(true, "Dados encontrados com sucesso.", response);
             }
             catch (Exception ex)
             {
