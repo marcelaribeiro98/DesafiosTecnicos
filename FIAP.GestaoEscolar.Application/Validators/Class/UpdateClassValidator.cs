@@ -26,7 +26,7 @@ namespace FIAP.GestaoEscolar.Application.Validators.Class
 
             RuleFor(turma => turma.Year)
             .GreaterThan(0).WithMessage("O ano deve ser um número positivo.")
-            .LessThanOrEqualTo(DateTime.Now.Year).WithMessage("O ano não pode ser maior que o ano atual.")
+            //.LessThanOrEqualTo(DateTime.Now.Year).WithMessage("O ano não pode ser maior que o ano atual.")
             .Must(BeFourDigits).WithMessage("O ano deve ter exatamente 4 dígitos.");
         }
         private async Task<bool> BeUniqueClassName(UpdateClassRequest request, string className, CancellationToken cancellationToken = default)

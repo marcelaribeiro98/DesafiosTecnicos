@@ -19,7 +19,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             {
                 using var connection = await _context.CreateConnectionAsync();
 
-                string sql = "INSERT INTO aluno (nome, usuario, senha, ativo) VALUES (@Name, @Username, @Password, 1); SELECT CAST(scope_identity() AS INT);";
+                string sql = "INSERT INTO aluno (nome, usuario, senha, ativo) VALUES (@Name, @Username, TRIM(@Password), 1); SELECT CAST(scope_identity() AS INT);";
 
                 return await connection.ExecuteScalarAsync<int>(sql, studentEntity);
             }
@@ -71,7 +71,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             {
                 using var connection = await _context.CreateConnectionAsync();
 
-                string sql = "UPDATE aluno SET nome = @Name, usuario = @Username, senha = @Password, ativo = @Active WHERE id = @Id";
+                string sql = "UPDATE aluno SET nome = @Name, usuario = @Username, senha = TRIM(@Password), ativo = @Active WHERE id = @Id";
 
                 return (await connection.ExecuteAsync(sql, studentEntity)) > 0;
 

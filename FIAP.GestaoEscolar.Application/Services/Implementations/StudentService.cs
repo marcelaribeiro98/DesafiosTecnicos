@@ -87,7 +87,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             }
         }
 
-        public async Task<BaseResponse> UpdateActiveAsync(int id, bool active)
+        public async Task<BaseResponse> UpdateActiveAsync(int id)
         {
             try
             {
@@ -95,17 +95,14 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (response == null)
                     return new BaseResponse(false, "Aluno não encontrado.");
 
-                if (response.Active == active)
-                    return new BaseResponse(true, $"Aluno já está {(active ? "ativado" : "inativado")}.");
-
-                bool? updated = await _studentRepository.UpdateActiveAsync(id, active);
+                bool? updated = await _studentRepository.UpdateActiveAsync(id, !response.Active);
 
                 if (updated == null || (bool)!updated)
                     return new BaseResponse(false, $"Não foi possível atualizar aluno.");
 
                 InvalidateCache(id);
 
-                return new BaseResponse(true, $"Aluno {(active ? "ativado" : "inativado")} com sucesso.");
+                return new BaseResponse(true, $"Aluno {(!response.Active ? "ativado" : "inativado")} com sucesso.");
             }
             catch (Exception ex)
             {

@@ -65,11 +65,11 @@ namespace FIAP.GestaoEscolar.API.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
-        public async Task<IActionResult> UpdateActiveAsync(int id, [FromBody] bool active)
+        public async Task<IActionResult> UpdateActiveAsync(int id)
         {
             try
             {
-                var response = await _studentService.UpdateActiveAsync(id, active);
+                var response = await _studentService.UpdateActiveAsync(id);
                 return BaseResponse(response);
             }
             catch (Exception ex)

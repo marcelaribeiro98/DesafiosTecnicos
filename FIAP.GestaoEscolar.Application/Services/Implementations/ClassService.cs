@@ -68,7 +68,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             }
         }
 
-        public async Task<BaseResponse> UpdateActiveAsync(int id, bool active)
+        public async Task<BaseResponse> UpdateActiveAsync(int id)
         {
             try
             {
@@ -76,16 +76,13 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (response == null)
                     return new BaseResponse(false, "Turma não encontrada.");
 
-                if (response.Active == active)
-                    return new BaseResponse(true, $"Turma já está {(active ? "ativada" : "inativada")}.");
-
-                bool? updated = await _classRepository.UpdateActiveAsync(id, active);
+                bool? updated = await _classRepository.UpdateActiveAsync(id, !response.Active);
                 if (updated == null || (bool)!updated)
                     return new BaseResponse(false, $"Não foi possível atualizar turma.");
 
                 InvalidateCache(id);
 
-                return new BaseResponse(true, $"Turma {(active ? "ativada" : "inativada")} com sucesso.");
+                return new BaseResponse(true, $"Turma {(!response.Active ? "ativada" : "inativada")} com sucesso.");
             }
             catch (Exception ex)
             {

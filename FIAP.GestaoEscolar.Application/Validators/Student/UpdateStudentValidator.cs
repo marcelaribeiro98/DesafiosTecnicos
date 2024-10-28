@@ -23,7 +23,7 @@ namespace FIAP.GestaoEscolar.Application.Validators.Class
 
             RuleFor(x => x.Password)
             .NotEmpty().WithMessage("A senha do aluno é obrigatória.")
-            .Length(8, 60).WithMessage("A senha do aluno deve ter entre 8 e 60 caracteres.")
+            .Length(8, 15).WithMessage("A senha do aluno deve ter entre 8 e 15 caracteres.")
             .Matches(@"[A-Z]").WithMessage("A senha deve conter pelo menos uma letra maiúscula.")
             .Matches(@"[a-z]").WithMessage("A senha deve conter pelo menos uma letra minúscula.")
             .Matches(@"[0-9]").WithMessage("A senha deve conter pelo menos um número.")

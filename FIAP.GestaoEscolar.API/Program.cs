@@ -1,6 +1,7 @@
 using FIAP.GestaoEscolar.API.DI;
 using FIAP.GestaoEscolar.Application.Validators.Class;
 using FluentValidation;
+using System.Text.Json;
 
 internal class Program
 {
@@ -9,7 +10,11 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddControllers();
+        builder.Services.AddControllers()
+                        .AddJsonOptions(options =>
+                        {
+                            options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; // Usar camelCase
+                        });
 
         builder.Services.AddValidatorsFromAssemblyContaining<CreateStudentValidator>();
 

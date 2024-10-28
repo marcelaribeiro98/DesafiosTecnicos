@@ -1,27 +1,27 @@
-using FIAP.GestaoEscolar.Admin.Models.Class;
-using FIAP.GestaoEscolar.Admin.Services.Class;
+using FIAP.GestaoEscolar.Admin.Models.Student;
+using FIAP.GestaoEscolar.Admin.Services.Student;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace FIAP.GestaoEscolar.Admin.Pages.Class
+namespace FIAP.GestaoEscolar.Admin.Pages.Student
 {
     public class IndexModel : PageModel
     {
-        IClassService _classService;
-        public IndexModel(IClassService classService)
+        IStudentService _studentService;
+        public IndexModel(IStudentService studentService)
         {
-            _classService = classService;
+            _studentService = studentService;
         }
 
         [TempData]
         public string Message { get; set; }
 
         [BindProperty]
-        public List<ClassModel> ListClasses { get; set; }
+        public List<StudentModel> ListStudents { get; set; }
 
         public async Task OnGetAsync()
         {
-            var response = await _classService.GetAllAsync();
+            var response = await _studentService.GetAllAsync();
 
             if (response != null && !response.Success)
             {
@@ -29,11 +29,11 @@ namespace FIAP.GestaoEscolar.Admin.Pages.Class
             }
 
             if (response?.Data != null && response?.Data.Count > 0)
-                ListClasses = response.Data ?? new List<ClassModel>();
+                ListStudents = response.Data ?? new List<StudentModel>();
         }
         public async Task<IActionResult> OnPostActivateAsync(int id)
         {
-            var response = await _classService.UpdateActiveAsync(id);
+            var response = await _studentService.UpdateActiveAsync(id);
 
             if (response != null && !response.Success)
             {

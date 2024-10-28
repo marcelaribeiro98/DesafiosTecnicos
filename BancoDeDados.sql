@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[aluno] (
     [id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
     [nome] VARCHAR(255) NOT NULL,
     [usuario] VARCHAR(45) NOT NULL,
-    [senha] CHAR(60) NOT NULL,
+    [senha] CHAR(60) NULL,
     [ativo] BIT NOT NULL DEFAULT 1
 ) ON [PRIMARY];
 GO
