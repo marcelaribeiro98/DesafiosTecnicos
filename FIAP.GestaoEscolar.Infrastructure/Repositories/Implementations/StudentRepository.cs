@@ -13,52 +13,94 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<int> CreateAsync(Student studentEntity)
+        public async Task<int?> CreateAsync(Student studentEntity)
         {
-            using var connection = await _context.CreateConnectionAsync();
+            try
+            {
+                using var connection = await _context.CreateConnectionAsync();
 
-            string sql = "INSERT INTO aluno (nome, usuario, senha, ativo) VALUES (@Name, @Username, @Password, 1); SELECT CAST(scope_identity() AS INT);";
+                string sql = "INSERT INTO aluno (nome, usuario, senha, ativo) VALUES (@Name, @Username, @Password, 1); SELECT CAST(scope_identity() AS INT);";
 
-            return await connection.ExecuteScalarAsync<int>(sql, studentEntity);
+                return await connection.ExecuteScalarAsync<int>(sql, studentEntity);
+            }
+            catch (Exception)
+            {
+                //Insere log
+                return null;
+            }
         }
 
-        public async Task<List<Student>> GetAllAsync()
+        public async Task<List<Student>?> GetAllAsync()
         {
-            using var connection = await _context.CreateConnectionAsync();
+            try
+            {
+                using var connection = await _context.CreateConnectionAsync();
 
-            string sql = "SELECT id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK)";
+                string sql = "SELECT id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK)";
 
-            return (await connection.QueryAsync<Student>(sql)).ToList();
+                return (await connection.QueryAsync<Student>(sql)).ToList();
+
+            }
+            catch (Exception)
+            {
+                //Insere log
+                return null;
+            }
         }
 
         public async Task<Student?> GetByIdAsync(int id)
         {
-            using var connection = await _context.CreateConnectionAsync();
+            try
+            {
+                using var connection = await _context.CreateConnectionAsync();
 
-            string sql = "SELECT  id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK) WHERE id = @Id";
+                string sql = "SELECT  id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK) WHERE id = @Id";
 
-            return await connection.QueryFirstOrDefaultAsync<Student?>(sql, new { Id = id });
+                return await connection.QueryFirstOrDefaultAsync<Student?>(sql, new { Id = id });
+            }
+            catch (Exception)
+            {
+                //Insere log
+                return null;
+            }
         }
 
-        public async Task<bool> UpdateAsync(Student studentEntity)
+        public async Task<bool?> UpdateAsync(Student studentEntity)
         {
-            using var connection = await _context.CreateConnectionAsync();
+            try
+            {
+                using var connection = await _context.CreateConnectionAsync();
 
-            string sql = "UPDATE aluno SET nome = @Name, usuario = @Username, senha = @Password, ativo = @Active WHERE id = @Id";
+                string sql = "UPDATE aluno SET nome = @Name, usuario = @Username, senha = @Password, ativo = @Active WHERE id = @Id";
 
-            return (await connection.ExecuteAsync(sql, studentEntity)) > 0;
+                return (await connection.ExecuteAsync(sql, studentEntity)) > 0;
+
+            }
+            catch (Exception)
+            {
+                //Insere log
+                return null;
+            }
         }
 
-        public async Task<bool> UpdateActiveAsync(int id, bool active)
+        public async Task<bool?> UpdateActiveAsync(int id, bool active)
         {
-            using var connection = await _context.CreateConnectionAsync();
+            try
+            {
+                using var connection = await _context.CreateConnectionAsync();
 
-            string sql = "UPDATE aluno SET ativo = @Active WHERE id = @Id";
+                string sql = "UPDATE aluno SET ativo = @Active WHERE id = @Id";
 
-            return (await connection.ExecuteAsync(sql, new { Id = id, Active = active })) > 0;
+                return (await connection.ExecuteAsync(sql, new { Id = id, Active = active })) > 0;
+            }
+            catch (Exception)
+            {
+                //Insere log
+                return null;
+            }
         }
 
-        public async Task<int> UserNameExistsAsync(string username, int? id = 0)
+        public async Task<bool?> UserNameExistsAsync(string username, int? id = 0)
         {
             try
             {
@@ -66,12 +108,14 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT COUNT(1) FROM aluno WITH(NOLOCK) WHERE LOWER(usuario) = LOWER(@Username) AND id != ISNULL(@Id,0)";
 
-                var resultado = await connection.QueryFirstOrDefaultAsync<int>(sql, new { Username = username, Id = id });
-                return resultado;
+                int exists = await connection.QueryFirstOrDefaultAsync<int>(sql, new { Username = username, Id = id });
+
+                return exists > 0;
             }
             catch (Exception)
             {
-                throw;
+                //Insere log
+                return null;
             }
         }
     }

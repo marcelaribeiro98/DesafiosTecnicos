@@ -13,7 +13,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<int> CreateAsync(Class classEntity)
+        public async Task<int?> CreateAsync(Class classEntity)
         {
             try
             {
@@ -21,15 +21,16 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "INSERT INTO turma (curso_id, turma, ano, ativo) VALUES (@CourseId, @ClassName, @Year, 1); SELECT CAST(scope_identity() AS INT);";
 
-                return await connection.ExecuteScalarAsync<int>(sql, classEntity);
+                return await connection.ExecuteScalarAsync<int?>(sql, classEntity);
             }
             catch (Exception)
             {
-                throw;
+                //Insere log
+                return null;
             }
         }
 
-        public async Task<List<Class>> GetAllAsync()
+        public async Task<List<Class>?> GetAllAsync()
         {
             try
             {
@@ -41,7 +42,8 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
             catch (Exception)
             {
-                throw;
+                //Insere log
+                return null;
             }
         }
 
@@ -58,12 +60,12 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
             catch (Exception)
             {
-
-                throw;
+                //Insere log
+                return null;
             }
         }
 
-        public async Task<bool> UpdateAsync(Class classEntity)
+        public async Task<bool?> UpdateAsync(Class classEntity)
         {
             try
             {
@@ -76,12 +78,12 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
             catch (Exception)
             {
-
-                throw;
+                //Insere log
+                return null;
             }
         }
 
-        public async Task<bool> UpdateActiveAsync(int id, bool active)
+        public async Task<bool?> UpdateActiveAsync(int id, bool active)
         {
             try
             {
@@ -94,12 +96,12 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
             catch (Exception)
             {
-
-                throw;
+                //Insere log
+                return null;
             }
         }
 
-        public async Task<int> ClassNameExistsAsync(string className, int? id = 0)
+        public async Task<bool?> ClassNameExistsAsync(string className, int? id = 0)
         {
             try
             {
@@ -107,12 +109,13 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT COUNT(1) FROM turma WITH(NOLOCK) WHERE LOWER(turma) = LOWER(@ClassName) AND id != ISNULL(@Id,0)";
 
-                var resultado =  await connection.QueryFirstOrDefaultAsync<int>(sql, new { ClassName = className, Id = id });
-                return resultado;
+                int exists = await connection.QueryFirstOrDefaultAsync<int>(sql, new { ClassName = className, Id = id });
+                return exists > 0;
             }
             catch (Exception)
             {
-                throw;
+                //Insere log
+                return null;
             }
         }
     }

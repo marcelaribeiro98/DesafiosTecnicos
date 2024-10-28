@@ -14,7 +14,7 @@ namespace FIAP.GestaoEscolar.Application.Validators.Class
             RuleFor(x => x.Username)
             .NotEmpty().WithMessage("O usuário do aluno é obrigatório.")
             .Length(1, 45).WithMessage("O usuário do aluno deve ter entre 1 e 45 caracteres.")
-            .MustAsync(BeUniqueUserName).WithMessage("O usuário do aluno já existe.");
+            .MustAsync(BeUniqueUserName).WithMessage("Esse usuário já está vinculado a outro aluno.");
 
             RuleFor(x => x.Name)
             .NotEmpty().WithMessage("O nome do aluno é obrigatório.")

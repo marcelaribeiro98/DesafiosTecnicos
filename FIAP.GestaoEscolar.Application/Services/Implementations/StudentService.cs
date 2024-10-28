@@ -29,9 +29,9 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             try
             {
                 var entityMapper = _mapper.Map<Student>(request);
-                int id = await _studentRepository.CreateAsync(entityMapper);
+                int? id = await _studentRepository.CreateAsync(entityMapper);
 
-                if (id == 0)
+                if (id == null || id == 0)
                     return new BaseResponse<int?>(false, "Não foi possível cadastrar aluno.");
 
                 InvalidateCache();
@@ -53,9 +53,9 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                     return new BaseResponse(false, "Aluno não encontrado.");
 
                 var entityMapper = _mapper.Map(request, entity);
-                bool updated = await _studentRepository.UpdateAsync(entityMapper);
+                bool? updated = await _studentRepository.UpdateAsync(entityMapper);
 
-                if (!updated)
+                if (updated == null || (bool)!updated)
                     return new BaseResponse(false, "Não foi possível atualizar aluno.");
 
                 InvalidateCache(request.Id);
@@ -79,9 +79,9 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (response.Active == active)
                     return new BaseResponse(true, $"Aluno já está {(active ? "ativado" : "inativado")}.");
 
-                bool updated = await _studentRepository.UpdateActiveAsync(id, active);
+                bool? updated = await _studentRepository.UpdateActiveAsync(id, active);
 
-                if (!updated)
+                if (updated == null || (bool)!updated)
                     return new BaseResponse(false, $"Não foi possível atualizar aluno.");
 
                 InvalidateCache(id);
@@ -139,10 +139,12 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 return new BaseResponse<List<GetStudentResponse>>(false, ex.Message, null);
             }
         }
+
         public async Task<bool> UserNameExistsAsync(string username, int? id = 0)
         {
-            return (await _studentRepository.UserNameExistsAsync(username, id)) > 0;
+            return (bool)await _studentRepository.UserNameExistsAsync(username, id);
         }
+
         private void InvalidateCache(int? id = 0)
         {
             _cache.Remove(_cacheKeyList);

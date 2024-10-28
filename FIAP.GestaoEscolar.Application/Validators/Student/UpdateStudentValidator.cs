@@ -1,4 +1,5 @@
 ﻿using FIAP.GestaoEscolar.Application.Services;
+using FIAP.GestaoEscolar.Domain.Requests.Class;
 using FIAP.GestaoEscolar.Domain.Requests.Student;
 using FluentValidation;
 
@@ -14,7 +15,7 @@ namespace FIAP.GestaoEscolar.Application.Validators.Class
             RuleFor(x => x.Username)
             .NotEmpty().WithMessage("O usuário do aluno é obrigatório.")
             .Length(1, 45).WithMessage("O usuário do aluno deve ter entre 1 e 45 caracteres.")
-            .MustAsync(BeUniqueUserName).WithMessage("O usuário do aluno já existe.");
+            .MustAsync(BeUniqueUserName).WithMessage("Esse usuário já está vinculado a outro aluno.");
 
             RuleFor(x => x.Name)
             .NotEmpty().WithMessage("O nome do aluno é obrigatório.")
@@ -29,9 +30,9 @@ namespace FIAP.GestaoEscolar.Application.Validators.Class
             .Matches(@"[\W_]").WithMessage("A senha deve conter pelo menos um caractere especial.");
         }
 
-        private async Task<bool> BeUniqueUserName(string username, CancellationToken cancellationToken = default)
+        private async Task<bool> BeUniqueUserName(UpdateStudentRequest request, string username, CancellationToken cancellationToken = default)
         {
-            var exists = await _studentService.UserNameExistsAsync(username);
+            var exists = await _studentService.UserNameExistsAsync(username, request.Id);
             return !exists;
         }
     }

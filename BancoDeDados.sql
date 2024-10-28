@@ -29,16 +29,17 @@ GO
 CREATE TABLE [dbo].[aluno_turma] (
     [aluno_id] INT NOT NULL,
     [turma_id] INT NOT NULL,
+    [ativo] BIT NOT NULL DEFAULT 1
     PRIMARY KEY ([aluno_id], [turma_id]),
     FOREIGN KEY ([aluno_id]) REFERENCES [dbo].[aluno] ([id]),
     FOREIGN KEY ([turma_id]) REFERENCES [dbo].[turma] ([id])
 ) ON [PRIMARY];
 GO
 
--- Inserção de dados na tabela aluno
-INSERT INTO [dbo].[aluno] ([nome], [usuario], [senha]) VALUES ('José Silva', 'jose.silva', 'senha_hash');
-INSERT INTO [dbo].[aluno] ([nome], [usuario], [senha]) VALUES ('Ana Maria', 'ana.maria', 'senha_hash');
+---- Inserção de dados na tabela aluno
+--INSERT INTO [dbo].[aluno] ([nome], [usuario], [senha]) VALUES ('José Silva', 'jose.silva', 'senha_hash');
+--INSERT INTO [dbo].[aluno] ([nome], [usuario], [senha]) VALUES ('Ana Maria', 'ana.maria', 'senha_hash');
 
--- Inserção de dados na tabela turma
-INSERT INTO [dbo].[turma] ([curso_id], [turma], [ano]) VALUES (1, 'Turma A', 2024);
-INSERT INTO [dbo].[turma] ([curso_id], [turma], [ano]) VALUES (2, 'Turma B', 2024);
+---- Inserção de dados na tabela turma
+--INSERT INTO [dbo].[turma] ([curso_id], [turma], [ano]) VALUES (1, 'Turma A', 2024);
+--INSERT INTO [dbo].[turma] ([curso_id], [turma], [ano]) VALUES (2, 'Turma B', 2024);

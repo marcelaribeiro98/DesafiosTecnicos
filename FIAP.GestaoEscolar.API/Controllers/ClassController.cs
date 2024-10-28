@@ -39,7 +39,7 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
         [HttpPut("{id}")]
         [ProducesResponseType(200, Type = typeof(BaseResponse))]
-        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] UpdateClassRequest request)
@@ -63,7 +63,7 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
         [HttpPut("{id}/ativo")]
         [ProducesResponseType(200, Type = typeof(BaseResponse))]
-        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> UpdateActiveAsync(int id, [FromBody] bool active)
@@ -81,7 +81,7 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(BaseResponse<GetClassResponse>))]
-        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> GetByIdAsync(int id)
@@ -99,7 +99,7 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(BaseResponse<List<GetClassResponse>>))]
-        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> GetAllAsync()

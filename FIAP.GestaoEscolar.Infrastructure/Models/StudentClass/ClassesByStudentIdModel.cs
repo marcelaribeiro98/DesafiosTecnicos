@@ -1,11 +1,13 @@
-﻿namespace FIAP.GestaoEscolar.Domain.Responses.Student
+﻿using FIAP.GestaoEscolar.Infrastructure.Entities;
+
+namespace FIAP.GestaoEscolar.Infrastructure.Models.StudentClass
 {
-    public class GetStudentResponse
+    public class ClassesByStudentIdModel
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Username { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
         public bool Active { get; set; }
+        public List<Class> Classes { get; set; }
     }
 }

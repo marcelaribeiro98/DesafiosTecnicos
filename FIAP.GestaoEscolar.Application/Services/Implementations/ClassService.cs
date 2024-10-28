@@ -29,9 +29,9 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
             try
             {
                 var entityMapper = _mapper.Map<Class>(request);
-                int id = await _classRepository.CreateAsync(entityMapper);
+                int? id = await _classRepository.CreateAsync(entityMapper);
 
-                if (id == 0)
+                if (id == null || id == 0)
                     return new BaseResponse<int?>(false, "Não foi possível cadastrar turma.");
 
                 InvalidateCache();
@@ -53,9 +53,9 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                     return new BaseResponse(false, "Turma não encontrada.");
 
                 var entityMapper = _mapper.Map(request, entity);
-                bool updated = await _classRepository.UpdateAsync(entityMapper);
+                bool? updated = await _classRepository.UpdateAsync(entityMapper);
 
-                if (!updated)
+                if (updated == null || !(bool)updated)
                     return new BaseResponse(false, "Não foi possível atualizar turma.");
 
                 InvalidateCache(request.Id);
@@ -79,8 +79,8 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (response.Active == active)
                     return new BaseResponse(true, $"Turma já está {(active ? "ativada" : "inativada")}.");
 
-                bool updated = await _classRepository.UpdateActiveAsync(id, active);
-                if (!updated)
+                bool? updated = await _classRepository.UpdateActiveAsync(id, active);
+                if (updated == null || (bool)!updated)
                     return new BaseResponse(false, $"Não foi possível atualizar turma.");
 
                 InvalidateCache(id);
@@ -121,7 +121,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                if (!_cache.TryGetValue(_cacheKeyList, out List<GetClassResponse> ? response))
+                if (!_cache.TryGetValue(_cacheKeyList, out List<GetClassResponse>? response))
                 {
                     var entities = await _classRepository.GetAllAsync();
                     if (entities == null || entities.Count == 0)
@@ -140,7 +140,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         }
         public async Task<bool> ClassNameExistsAsync(string className, int? id = 0)
         {
-            return (await _classRepository.ClassNameExistsAsync(className, id)) > 0;
+            return (bool)await _classRepository.ClassNameExistsAsync(className, id);
         }
         private void InvalidateCache(int? id = 0)
         {

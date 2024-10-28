@@ -2,11 +2,18 @@
 {
     public class StudentClass
     {
-        public int AlunoId { get; set; }
-        public int TurmaId { get; set; }
+        public StudentClass()
+        {
+            Student = new Student();
+            Class = new Class();
+        }
 
-        public Student? Aluno { get; set; }
-        public Class? Turma { get; set; }
+        public int StudentId { get; set; }
+        public int ClassId { get; set; }
+        public bool Active { get; set; }
+
+        public Student Student { get; set; }
+        public Class Class { get; set; }
     }
 
 }
