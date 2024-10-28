@@ -1,5 +1,7 @@
 # Visual Studio
 .vs/
+*.v2
+*.vsidx
 *.suo
 *.user
 *.userosscache
