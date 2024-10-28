@@ -4,6 +4,6 @@ namespace FIAP.GestaoEscolar.Admin.Services.Class
 {
     public interface IClassService
     {
-        Task<List<ClassModel>?> GetAllAsync();
+        Task<ClassModelResponse?> GetAllAsync();
     }
 }

@@ -25,7 +25,7 @@
                 <td>@item.ClassName</td>
                 <td>@item.CourseId</td>
                 <td>@item.Year</td>
-                <td>@item.Active</td>
+                <td>@(item.Active ? "Ativo": "Inativo")</td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
                     <a asp-page="./Active" asp-route-id="@item.Id">@(!@item.Active ? "Ativar" : "Inativar")</a>

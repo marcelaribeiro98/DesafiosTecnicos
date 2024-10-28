@@ -1,4 +1,4 @@
-﻿namespace FIAP.GestaoEscolar.Domain.DTOs.Class
+﻿namespace FIAP.GestaoEscolar.Domain.Commands.Class
 {
     public class CreateClassRequest
     {

@@ -17,7 +17,7 @@ namespace FIAP.GestaoEscolar.Admin.Services.Class.Implementations
             _urlApi = apiSettings.Value.UrlAPI;
         }
 
-        public async Task<List<ClassModel>?> GetAllAsync()
+        public async Task<ClassModelResponse?> GetAllAsync()
         {
             try
             {
@@ -28,13 +28,14 @@ namespace FIAP.GestaoEscolar.Admin.Services.Class.Implementations
 
                 var responseStream = await client.GetStreamAsync(endpoint);
 
-                var response = await JsonSerializer.DeserializeAsync<ClassModelResponse>(responseStream);
+                var response = await JsonSerializer.DeserializeAsync<ClassModelResponse>(responseStream,
+                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-                return response?.Data;
+                return response;
             }
             catch (HttpRequestException ex)
             {
-                return null;
+                return new ClassModelResponse() { Success = false, Message = ex.Message, Data = null };
             }
 
         }

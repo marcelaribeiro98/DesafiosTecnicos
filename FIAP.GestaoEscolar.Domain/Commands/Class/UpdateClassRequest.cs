@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FIAP.GestaoEscolar.Domain.DTOs.Class
+namespace FIAP.GestaoEscolar.Domain.Commands.Class
 {
     public class UpdateClassRequest
     {

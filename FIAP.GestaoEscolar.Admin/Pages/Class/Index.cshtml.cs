@@ -13,14 +13,23 @@ namespace FIAP.GestaoEscolar.Admin.Pages.Class
             _classService = classService;
         }
 
+        [TempData]
+        public string Message { get; set; }
+
         [BindProperty]
         public List<ClassModel> ListClasses { get; set; }
 
         public async Task OnGetAsync()
         {
-            var data = await _classService.GetAllAsync();
+            var response = await _classService.GetAllAsync();
 
-            ListClasses = data ?? new List<ClassModel>();
+            if (response != null && !response.Success)
+            {
+                Message = response.Message;
+            }
+
+            if (response?.Data != null && response?.Data.Count > 0)
+                ListClasses = response.Data ?? new List<ClassModel>();
         }
     }
 }

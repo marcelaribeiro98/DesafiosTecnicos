@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
-using Azure.Core;
 using FIAP.GestaoEscolar.Domain.Base;
-using FIAP.GestaoEscolar.Domain.DTOs.Class;
+using FIAP.GestaoEscolar.Domain.Commands.Class;
 using FIAP.GestaoEscolar.Domain.Queries.Class;
 using FIAP.GestaoEscolar.Infrastructure.Entities;
 using FIAP.GestaoEscolar.Infrastructure.Repositories;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Options;
 
 namespace FIAP.GestaoEscolar.Application.Services.Implementations
 {
