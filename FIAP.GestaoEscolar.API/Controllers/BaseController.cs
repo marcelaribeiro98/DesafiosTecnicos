@@ -13,19 +13,6 @@ namespace FIAP.GestaoEscolar.API.Controllers
 
             return base.BadRequest(new BaseResponse<List<ResponseValidator>?>(false, "Erro de validação", validationFailures));
         }
-        protected IActionResult BaseResponse<T>(BaseResponse<T> response, bool created = false)
-        {
-            if (response.Success && !created)
-                return base.Ok(response);
-
-            if (response.Success && created)
-                return base.Created("", response);
-
-            if (response.Data == null)
-                return base.NotFound(response);
-
-            return base.BadRequest(response);
-        }
         protected IActionResult BaseResponse(BaseResponse response)
         {
             if (response.Success)
@@ -34,7 +21,26 @@ namespace FIAP.GestaoEscolar.API.Controllers
             return base.BadRequest(response);
         }
 
-        protected IActionResult BaseResponse(Exception exception)
+        protected IActionResult BaseResponse<T>(BaseResponse<T> response)
+        {
+            if (response.Success)
+                return base.Ok(response);
+
+            if (response.Data == null)
+                return base.NoContent();
+
+            return base.BadRequest(response);
+        }
+
+        protected IActionResult BaseResponseCreated<T>(BaseResponse<T> response)
+        {
+            if (response.Success)
+                return base.Created("", response);
+
+            return base.BadRequest(response);
+        }
+
+        protected IActionResult BaseResponseError(Exception exception)
         {
             return base.StatusCode(500, new BaseResponse(false, exception.Message));
         }

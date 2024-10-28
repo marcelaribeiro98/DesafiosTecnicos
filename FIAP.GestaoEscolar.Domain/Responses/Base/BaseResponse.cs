@@ -12,7 +12,7 @@
     }
     public class BaseResponse<T> : BaseResponse
     {
-        public BaseResponse(bool success, string message, T? data) : base(success, message)
+        public BaseResponse(bool success, string message, T? data = default) : base(success, message)
         {
             Data = data;
         }

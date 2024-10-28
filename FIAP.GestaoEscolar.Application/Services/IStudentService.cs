@@ -6,7 +6,7 @@ namespace FIAP.GestaoEscolar.Application.Services
 {
     public interface IStudentService
     {
-        Task<BaseResponse<int>> CreateAsync(CreateStudentRequest request);
+        Task<BaseResponse<int?>> CreateAsync(CreateStudentRequest request);
         Task<BaseResponse> UpdateAsync(UpdateStudentRequest request);
         Task<BaseResponse> UpdateActiveAsync(int id, bool active);
         Task<BaseResponse<GetStudentResponse?>> GetByIdAsync(int id);

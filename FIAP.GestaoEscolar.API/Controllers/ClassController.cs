@@ -1,63 +1,55 @@
 ﻿using FIAP.GestaoEscolar.Application.Services;
 using FIAP.GestaoEscolar.Application.Validators.Class;
 using FIAP.GestaoEscolar.Domain.Requests.Class;
+using FIAP.GestaoEscolar.Domain.Requests.Student;
 using FIAP.GestaoEscolar.Domain.Responses.Base;
 using FIAP.GestaoEscolar.Domain.Responses.Class;
+using FIAP.GestaoEscolar.Domain.Responses.Student;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.GestaoEscolar.API.Controllers
 {
     [ApiController]
     [Route("api/turma")]
-    public class ClassController : BaseController
+    public class ClassController(IClassService classService) : BaseController
     {
-        private readonly IClassService _classService;
-        public ClassController(IClassService classService)
-        {
-            _classService = classService;
-
-        }
+        private readonly IClassService _classService = classService;
 
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(BaseResponse<int>))]
-        [ProducesResponseType(400, Type = typeof(BaseResponse<int>))]
-        [ProducesResponseType(404, Type = typeof(BaseResponse<int>))]
-        [ProducesResponseType(500, Type = typeof(BaseResponse<int>))]
-        public async Task<IActionResult> PostAsync([FromBody] CreateClassRequest request)
+        [ProducesResponseType(400, Type = typeof(BaseResponse))]
+        [ProducesResponseType(500, Type = typeof(BaseResponse))]
+        public async Task<IActionResult> CreateAsync([FromBody] CreateClassRequest request)
         {
             try
             {
-                var validator = new CreateClassValidator(_classService);
-                var validationResult = await validator.ValidateAsync(request);
-
-                if (validationResult != null && !validationResult.IsValid)
+                var validationResult = await new CreateClassValidator(_classService).ValidateAsync(request);
+                if (!validationResult.IsValid)
                     return BaseResponseValidator(validationResult);
 
                 var response = await _classService.CreateAsync(request);
 
-                return BaseResponse(response, true);
+                return BaseResponseCreated(response);
             }
             catch (Exception ex)
             {
-                return BaseResponse(ex);
+                return BaseResponseError(ex);
             }
         }
 
         [HttpPut("{id}")]
         [ProducesResponseType(200, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204, Type = typeof(BaseResponse))]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
-        [ProducesResponseType(404, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] UpdateClassRequest request)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] UpdateClassRequest request)
         {
             try
             {
                 request.Id = id;
 
-                var validator = new UpdateClassValidator(_classService);
-                var validationResult = await validator.ValidateAsync(request);
-
-                if (validationResult != null && !validationResult.IsValid)
+                var validationResult = await new UpdateClassValidator(_classService).ValidateAsync(request);
+                if (!validationResult.IsValid)
                     return BaseResponseValidator(validationResult);
 
                 var response = await _classService.UpdateAsync(request);
@@ -65,16 +57,16 @@ namespace FIAP.GestaoEscolar.API.Controllers
             }
             catch (Exception ex)
             {
-                return BaseResponse(ex);
+                return BaseResponseError(ex);
             }
         }
 
         [HttpPut("{id}/ativo")]
         [ProducesResponseType(200, Type = typeof(BaseResponse))]
+        [ProducesResponseType(204, Type = typeof(BaseResponse))]
         [ProducesResponseType(400, Type = typeof(BaseResponse))]
-        [ProducesResponseType(404, Type = typeof(BaseResponse))]
         [ProducesResponseType(500, Type = typeof(BaseResponse))]
-        public async Task<IActionResult> PutActiveAsync(int id, [FromBody] bool active)
+        public async Task<IActionResult> UpdateActiveAsync(int id, [FromBody] bool active)
         {
             try
             {
@@ -83,15 +75,15 @@ namespace FIAP.GestaoEscolar.API.Controllers
             }
             catch (Exception ex)
             {
-                return BaseResponse(ex);
+                return BaseResponseError(ex);
             }
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(200, Type = typeof(BaseResponse<GetClassResponse?>))]
-        [ProducesResponseType(400, Type = typeof(BaseResponse<GetClassResponse?>))]
-        [ProducesResponseType(404, Type = typeof(BaseResponse<GetClassResponse?>))]
-        [ProducesResponseType(500, Type = typeof(BaseResponse<GetClassResponse?>))]
+        [ProducesResponseType(200, Type = typeof(BaseResponse<GetClassResponse>))]
+        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(400, Type = typeof(BaseResponse))]
+        [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             try
@@ -101,15 +93,15 @@ namespace FIAP.GestaoEscolar.API.Controllers
             }
             catch (Exception ex)
             {
-                return BaseResponse(ex);
+                return BaseResponseError(ex);
             }
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(BaseResponse<List<GetClassResponse>>))]
-        [ProducesResponseType(400, Type = typeof(BaseResponse<List<GetClassResponse>>))]
-        [ProducesResponseType(404, Type = typeof(BaseResponse<List<GetClassResponse>>))]
-        [ProducesResponseType(500, Type = typeof(BaseResponse<List<GetClassResponse>>))]
+        [ProducesResponseType(204, Type = typeof(BaseResponse))]
+        [ProducesResponseType(400, Type = typeof(BaseResponse))]
+        [ProducesResponseType(500, Type = typeof(BaseResponse))]
         public async Task<IActionResult> GetAllAsync()
         {
             try
@@ -119,7 +111,7 @@ namespace FIAP.GestaoEscolar.API.Controllers
             }
             catch (Exception ex)
             {
-                return BaseResponse(ex);
+                return BaseResponseError(ex);
             }
         }
     }
