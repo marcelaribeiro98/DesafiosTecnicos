@@ -10,6 +10,6 @@ namespace FIAP.GestaoEscolar.Infrastructure.Models.StudentClass
         public int Year { get; set; }
         public bool Active { get; set; }
 
-        public List<Student> Students { get; set; }
+        public List<StudentEntity> Students { get; set; }
     }
 }

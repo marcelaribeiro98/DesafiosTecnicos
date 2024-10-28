@@ -1,6 +1,6 @@
 ﻿namespace FIAP.GestaoEscolar.Infrastructure.Entities
 {
-    public class Class
+    public class ClassEntity
     {
         public int Id { get; set; }
         public int CourseId { get; set; }

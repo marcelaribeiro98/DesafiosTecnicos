@@ -5,11 +5,11 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories
 {
     public interface IStudentClassRepository
     {
-        Task<bool?> CreateAsync(StudentClass studentClassEntity);
-        Task<bool?> UpdateAsync(StudentClass studentClassEntity, int oldClassId);
-        Task<bool?> UpdateActiveAsync(StudentClass studentClassEntity);
-        Task<StudentClass?> GetByIdAsync(int studentId, int classId);
-        Task<List<StudentClass>> GetStudentClassByStudentIdAsync(int studentId);
+        Task<bool?> CreateAsync(StudentClassEntity studentClassEntity);
+        Task<bool?> UpdateAsync(StudentClassEntity studentClassEntity, int oldClassId);
+        Task<bool?> UpdateActiveAsync(StudentClassEntity studentClassEntity);
+        Task<StudentClassEntity?> GetByIdAsync(int studentId, int classId);
+        Task<List<StudentClassEntity>> GetStudentClassByStudentIdAsync(int studentId);
         Task<List<StudentsByClassIdModel>> GetStudentsByClassIdAsync(int classId);
         Task<List<ClassesByStudentIdModel>> GetClassesByStudentIdAsync(int studentId);
     }

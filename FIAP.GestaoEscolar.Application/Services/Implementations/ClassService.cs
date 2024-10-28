@@ -28,7 +28,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                var entityMapper = _mapper.Map<Class>(request);
+                var entityMapper = _mapper.Map<ClassEntity>(request);
                 int? id = await _classRepository.CreateAsync(entityMapper);
 
                 if (id == null || id == 0)

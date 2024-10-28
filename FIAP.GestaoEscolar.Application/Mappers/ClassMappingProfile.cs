@@ -9,13 +9,13 @@ namespace FIAP.GestaoEscolar.Application.Mappers
     {
         public ClassMappingProfile()
         {
-            CreateMap<Class, CreateClassRequest>()
+            CreateMap<ClassEntity, CreateClassRequest>()
                 .ReverseMap();
 
-            CreateMap<Class, UpdateClassRequest>()
+            CreateMap<ClassEntity, UpdateClassRequest>()
              .ReverseMap();
 
-            CreateMap<Class, GetClassResponse>()
+            CreateMap<ClassEntity, GetClassResponse>()
              .ReverseMap();
         }
     }

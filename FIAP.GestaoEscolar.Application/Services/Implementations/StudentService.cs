@@ -29,7 +29,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
         {
             try
             {
-                var entityMapper = _mapper.Map<Student>(request);
+                var entityMapper = _mapper.Map<StudentEntity>(request);
 
                 string password = entityMapper.Password;
                 string hashPassword = Cryptography.HashPassword(password);

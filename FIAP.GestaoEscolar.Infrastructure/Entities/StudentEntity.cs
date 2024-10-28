@@ -1,6 +1,6 @@
 ﻿namespace FIAP.GestaoEscolar.Infrastructure.Entities
 {
-    public class Student
+    public class StudentEntity
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

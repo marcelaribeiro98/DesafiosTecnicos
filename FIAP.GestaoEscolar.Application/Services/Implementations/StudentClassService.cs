@@ -47,7 +47,7 @@ namespace FIAP.GestaoEscolar.Application.Services.Implementations
                 if (!dataIsValid.Success)
                     return dataIsValid;
 
-                var entityMapper = _mapper.Map<StudentClass>(request);
+                var entityMapper = _mapper.Map<StudentClassEntity>(request);
                 bool? inserted = await _studentClassRepository.CreateAsync(entityMapper);
 
                 if (inserted == null || !(bool)inserted)

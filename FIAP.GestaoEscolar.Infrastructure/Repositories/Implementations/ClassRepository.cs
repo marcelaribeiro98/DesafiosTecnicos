@@ -13,7 +13,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<int?> CreateAsync(Class classEntity)
+        public async Task<int?> CreateAsync(ClassEntity classEntity)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<List<Class>?> GetAllAsync()
+        public async Task<List<ClassEntity>?> GetAllAsync()
         {
             try
             {
@@ -38,7 +38,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT id, curso_id AS CourseId, turma AS ClassName, ano AS Year, ativo AS Active FROM turma WITH(NOLOCK)";
 
-                return (await connection.QueryAsync<Class>(sql)).ToList();
+                return (await connection.QueryAsync<ClassEntity>(sql)).ToList();
             }
             catch (Exception)
             {
@@ -47,7 +47,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<Class?> GetByIdAsync(int id)
+        public async Task<ClassEntity?> GetByIdAsync(int id)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT id, curso_id AS CourseId, turma AS ClassName, ano AS Year, ativo AS Active FROM turma WITH(NOLOCK) WHERE id = @Id";
 
-                return await connection.QueryFirstOrDefaultAsync<Class?>(sql, new { Id = id });
+                return await connection.QueryFirstOrDefaultAsync<ClassEntity?>(sql, new { Id = id });
 
             }
             catch (Exception)
@@ -65,7 +65,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<bool?> UpdateAsync(Class classEntity)
+        public async Task<bool?> UpdateAsync(ClassEntity classEntity)
         {
             try
             {

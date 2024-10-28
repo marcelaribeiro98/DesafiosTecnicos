@@ -13,7 +13,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<int?> CreateAsync(Student studentEntity)
+        public async Task<int?> CreateAsync(StudentEntity studentEntity)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<List<Student>?> GetAllAsync()
+        public async Task<List<StudentEntity>?> GetAllAsync()
         {
             try
             {
@@ -38,7 +38,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK)";
 
-                return (await connection.QueryAsync<Student>(sql)).ToList();
+                return (await connection.QueryAsync<StudentEntity>(sql)).ToList();
 
             }
             catch (Exception)
@@ -48,7 +48,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<Student?> GetByIdAsync(int id)
+        public async Task<StudentEntity?> GetByIdAsync(int id)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT  id, nome AS Name, usuario AS Username, senha AS Password, ativo AS Active FROM aluno WITH(NOLOCK) WHERE id = @Id";
 
-                return await connection.QueryFirstOrDefaultAsync<Student?>(sql, new { Id = id });
+                return await connection.QueryFirstOrDefaultAsync<StudentEntity?>(sql, new { Id = id });
             }
             catch (Exception)
             {
@@ -65,7 +65,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<bool?> UpdateAsync(Student studentEntity)
+        public async Task<bool?> UpdateAsync(StudentEntity studentEntity)
         {
             try
             {

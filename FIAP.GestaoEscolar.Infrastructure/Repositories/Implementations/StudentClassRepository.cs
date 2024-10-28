@@ -14,7 +14,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<bool?> CreateAsync(StudentClass studentClassEntity)
+        public async Task<bool?> CreateAsync(StudentClassEntity studentClassEntity)
         {
             try
             {
@@ -31,11 +31,11 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<StudentClass?> GetByIdAsync(int studentId, int classId)
+        public async Task<StudentClassEntity?> GetByIdAsync(int studentId, int classId)
         {
             try
             {
-                StudentClass? studentClass = null;
+                StudentClassEntity? studentClass = null;
 
                 using var connection = await _context.CreateConnectionAsync();
 
@@ -61,18 +61,18 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 if (result != null)
                 {
-                    studentClass = new StudentClass
+                    studentClass = new StudentClassEntity
                     {
                         StudentId = result.StudentId,
                         ClassId = result.ClassId,
                         Active = result.Active,
-                        Student = new Student
+                        Student = new StudentEntity
                         {
                             Id = result.StudentId,
                             Name = result.Name,
                             Username = result.Username
                         },
-                        Class = new Class
+                        Class = new ClassEntity
                         {
                             Id = result.ClassId,
                             ClassName = result.ClassName,
@@ -91,7 +91,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<List<StudentClass>> GetStudentClassByStudentIdAsync(int studentId)
+        public async Task<List<StudentClassEntity>> GetStudentClassByStudentIdAsync(int studentId)
         {
             try
             {
@@ -99,7 +99,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
 
                 string sql = "SELECT aluno_id AS StudentId, turma_id AS ClassId, ativo AS Active FROM aluno_turma WITH(NOLOCK) WHERE aluno_id = @StudentId";
 
-                return (await connection.QueryAsync<StudentClass>(sql, new { StudentId = studentId })).ToList();
+                return (await connection.QueryAsync<StudentClassEntity>(sql, new { StudentId = studentId })).ToList();
 
             }
             catch (Exception)
@@ -152,7 +152,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
                         CourseId = g.Key.CourseId,
                         Year = g.Key.Year,
                         Active = g.Key.Active,
-                        Students = g.Select(x => new Student
+                        Students = g.Select(x => new StudentEntity
                         {
                             Id = (int)x.StudentId,
                             Name = (string)x.Name,
@@ -213,7 +213,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
                         Name = (string)g.Key.Name,
                         Username = (string)g.Key.Username,
                         Active = (bool)g.Key.Active,
-                        Classes = g.Select(r => new Class
+                        Classes = g.Select(r => new ClassEntity
                         {
                             Id = (int)r.ClassId,
                             ClassName = (string)r.ClassName,
@@ -233,7 +233,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<bool?> UpdateActiveAsync(StudentClass studentClassEntity)
+        public async Task<bool?> UpdateActiveAsync(StudentClassEntity studentClassEntity)
         {
             try
             {
@@ -251,7 +251,7 @@ namespace FIAP.GestaoEscolar.Infrastructure.Repositories.Implementations
             }
         }
 
-        public async Task<bool?> UpdateAsync(StudentClass studentClassEntity, int currentClassId)
+        public async Task<bool?> UpdateAsync(StudentClassEntity studentClassEntity, int currentClassId)
         {
             try
             {

@@ -11,23 +11,23 @@ namespace FIAP.GestaoEscolar.Application.Mappers
     {
         public StudentClassMappingProfile()
         {
-            CreateMap<StudentClass, CreateStudentClassRequest>()
+            CreateMap<StudentClassEntity, CreateStudentClassRequest>()
                 .ReverseMap();
 
-            CreateMap<StudentClass, UpdateStudentClassRequest>()
+            CreateMap<StudentClassEntity, UpdateStudentClassRequest>()
              .ReverseMap();
 
-            CreateMap<StudentModel, Student>()
+            CreateMap<StudentModel, StudentEntity>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Active, opt => opt.Ignore())
              .ReverseMap();
 
-            CreateMap<ClassModel, Class>()
+            CreateMap<ClassModel, ClassEntity>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Active, opt => opt.Ignore())
              .ReverseMap();
 
-            CreateMap<StudentClass, GetStudentClassResponse>()
+            CreateMap<StudentClassEntity, GetStudentClassResponse>()
              .ReverseMap();
 
             CreateMap<StudentsByClassIdModel, GetStudentsByClassIdResponse>()
